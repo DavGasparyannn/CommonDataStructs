@@ -75,10 +75,7 @@ namespace CommonDataStructs.Structs.Lists
         }
         public void AddAfter(DoublyLinkedListNode<T> node, T value)
         {
-            if (node == null)
-            {
-                throw new ArgumentNullException(nameof(node));
-            }
+            ValidateNode(node);
             DoublyLinkedListNode<T> newNode = new DoublyLinkedListNode<T>(value);
             if (node == tail)
             {
@@ -93,6 +90,26 @@ namespace CommonDataStructs.Structs.Lists
 
                 node.next = newNode;
                 newNode.prev = node;
+            }
+            count++;
+        }
+        public void AddBefore(DoublyLinkedListNode<T> node, T value)
+        {
+            ValidateNode(node);
+            DoublyLinkedListNode<T> newNode = new DoublyLinkedListNode<T>(value);
+            if (node == head)
+            {
+                head.prev = newNode;
+                newNode.next = head;
+                head = newNode;
+            }
+            else
+            {
+                newNode.prev = node.prev;
+                node.prev!.next = newNode;
+
+                node.prev = newNode;
+                newNode.next = node;
             }
             count++;
         }
@@ -117,6 +134,13 @@ namespace CommonDataStructs.Structs.Lists
             public DoublyLinkedListNode(T value)
             {
                 this.value = value;
+            }
+        }
+        private void ValidateNode(DoublyLinkedListNode<T> node)
+        {
+            if (node == null)
+            {
+                throw new ArgumentNullException(nameof(node));
             }
         }
     }
