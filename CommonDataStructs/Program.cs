@@ -11,7 +11,6 @@ namespace CommonDataStructs
             MyList<int> list = new MyList<int>();
             List<int> list2 = new List<int>();
             LinkedList<int> ints = new LinkedList<int>();
-            Console.WriteLine(ints.First);
             DoublyLinkedList<int> doublyLinkedList = new DoublyLinkedList<int>();
             doublyLinkedList.AddStart(1);
             doublyLinkedList.AddStart(2);
