@@ -46,6 +46,34 @@ namespace CommonDataStructs.Structs.Lists
             }
             _array[_size++] = item;
         }
+        public void AddRange(IEnumerable<T> collection)
+        {
+            foreach (var item in collection)
+            {
+                Add(item);
+            }
+        }
+        public void Remove(T item)
+        {
+            int index = Array.IndexOf(_array, item, 0, _size);
+            if (index == -1)
+            {
+                return;
+            }
+            RemoveAt(index);
+        }
+        public void RemoveAt(int index)
+        {
+            if (index < 0 || index >= _size)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            for (int i = index; i < _size - 1; i++)
+            {
+                _array[i] = _array[i + 1];
+            }
+            _size--;
+        }
         public int Length => _size;
         public int Capacity() => _capacity;
         private void Resize()
