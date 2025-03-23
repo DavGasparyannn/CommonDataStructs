@@ -1,4 +1,5 @@
 ﻿using CommonDataStructs.Structs;
+using CommonDataStructs.Structs.Lists;
 
 
 namespace CommonDataStructs
@@ -7,19 +8,22 @@ namespace CommonDataStructs
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            Tree tree = new Tree();
-            tree.Insert(5);
-            tree.Insert(2);
-            tree.Insert(8);
-            tree.Insert(1);
-            tree.Insert(3);
-            Tree newTree = tree.Copy();
+            MyList<int> list = new MyList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
 
-            newTree.Delete(3);
-            newTree.Print();
-            tree.Print();
-           
+            list.Add(6);
+            list.Add(7);
+            list.Add(8);
+
+            list.Add(9);
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
