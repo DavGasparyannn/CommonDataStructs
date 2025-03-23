@@ -10,7 +10,8 @@ namespace CommonDataStructs
         {
             MyList<int> list = new MyList<int>();
             List<int> list2 = new List<int>();
-            list.Add(1);
+            LinkedList<int> ints = new LinkedList<int>();
+\            list.Add(1);
             list.Add(2);
             list.Add(3);
             list.Add(4);
