@@ -86,6 +86,15 @@ namespace CommonDataStructs.Structs.Lists
                 newNode.prev = tail;
                 tail = newNode;
             }
+            else
+            {
+                newNode.next = node.next;
+                node.next!.prev = newNode;
+
+                node.next = newNode;
+                newNode.prev = node;
+            }
+            count++;
         }
         public IEnumerator<T> GetEnumerator()
         {
