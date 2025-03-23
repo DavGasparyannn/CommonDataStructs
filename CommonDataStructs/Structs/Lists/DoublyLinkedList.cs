@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CommonDataStructs.Structs.Lists
 {
-    public class DoublyLinkedList<T>
+    public class DoublyLinkedList<T> : IEnumerable<T>
     {
         private DoublyLinkedListNode? head;
         private DoublyLinkedListNode? tail;
@@ -44,6 +45,20 @@ namespace CommonDataStructs.Structs.Lists
             }
             count++;
         }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (DoublyLinkedListNode? current = head; current != null; current = current.next)
+            {
+                yield return current.value;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+           return GetEnumerator();
+        }
+
         private class DoublyLinkedListNode
         {
             public readonly T value;
